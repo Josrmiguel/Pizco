@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff8ee;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #ffb300;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+header button {
+  background: white;
+  border: none;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #ff6f00;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: #ffdb8a;
+}
+
+header button.active {
+  background: #ff6f00;
+  color: white;
+}
+
+main, section {
+  padding: 2em;
+  max-width: 600px;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0.5em 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+input[type="text"],
+textarea,
+select {
+  flex: 1;
+  padding: 0.6em;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  color: #333;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Productos con estructura y alineación corregidas */
+.productos > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75em 1em;
+  margin: 0.5em 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.producto-nombre {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.control-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-cantidad span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.control-cantidad button {
+  width: 30px;
+  height: 30px;
+  background: #ffb300;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.control-cantidad button:hover {
+  background-color: #ff6f00;
+}
+
+button.confirmar {
+  background: linear-gradient(to right, #ffb300, #ff6f00);
+  color: white;
+  border: none;
+  padding: 0.9em;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+button.confirmar:hover {
+  background: linear-gradient(to right, #ff6f00, #ffb300);
+}
+
+h2 {
+  color: #ff6f00;
+  margin-bottom: 1em;
+}
+
+#listaHistorial div,
+#listaReservas div {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.alergia {
+  background-color: #ffe5e5 !important;
+  border-left: 4px solid red;
+  padding-left: 8px;
+  color: #b70000;
+}
+
+#busquedaReservas,
+#busquedaHistorial {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Ajuste para centrar verticalmente los checkboxes */
+input[type="checkbox"] {
+  vertical-align: middle;
+  position: relative;
+  top: 1px;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Botones en historial y reservas con estilo consistente */
+#listaHistorial button,
+#listaReservas button {
+  background: white;
+  border: none;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #ff6f00;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  margin-left: 0.5em;
+  font-size: 0.9rem;
+}
+
+#listaHistorial button:hover,
+#listaReservas button:hover {
+  background-color: #ffdb8a;
+}
+
+#listaHistorial button:active,
+#listaReservas button:active {
+  background-color: #ff6f00;
+  color: white;
+}
+
+/* Contenedor de botones para alinear horizontalmente */
+.historial-botones {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 5px;
+}

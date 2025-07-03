@@ -1,0 +1,21 @@
+{
+  "name": "Pizco - App Interna",
+  "short_name": "Pizco",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff8ee",
+  "theme_color": "#ffb300",
+  "description": "Aplicación interna para gestión de pedidos en la cafetería Pizco",
+  "icons": [
+    {
+      "src": "sandwich-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "sandwich-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pizco - App Interna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ffb300" />
+</head>
+<body>
+  <header>
+    <button onclick="showSection('pedido')" class="active">Nuevo Pedido</button>
+    <button onclick="showSection('reservas')">Reservas</button>
+    <button onclick="showSection('historial')">Historial de Pedidos</button>
+    <button onclick="showSection('resumen')">Total de Productos</button>
+  </header>
+
+  <main>
+    <section id="pedido">
+      <h2>Nuevo Pedido</h2>
+      <label>Nombre del encargo:
+        <input type="text" id="encargo" />
+      </label>
+      <label>Teléfono:
+        <input type="text" id="telefono" />
+      </label>
+
+      <div class="productos">
+        <div>
+          <span class="producto-nombre">Bandeja de sándwiches</span>
+          <div class="control-cantidad">
+            <button onclick="modificarCantidad('bandeja', -1)">-</button>
+            <span id="bandeja">0</span>
+            <button onclick="modificarCantidad('bandeja', 1)">+</button>
+          </div>
+        </div>
+        <div>
+          <span class="producto-nombre">Canastillas</span>
+          <div class="control-cantidad">
+            <button onclick="modificarCantidad('canastillas', -1)">-</button>
+            <span id="canastillas">0</span>
+            <button onclick="modificarCantidad('canastillas', 1)">+</button>
+          </div>
+        </div>
+        <div>
+          <span class="producto-nombre">Canapés</span>
+          <div class="control-cantidad">
+            <button onclick="modificarCantidad('canapes', -1)">-</button>
+            <span id="canapes">0</span>
+            <button onclick="modificarCantidad('canapes', 1)">+</button>
+          </div>
+        </div>
+        <div>
+          <span class="producto-nombre">Mediasnoches</span>
+          <div class="control-cantidad">
+            <button onclick="modificarCantidad('mediasnoches', -1)">-</button>
+            <span id="mediasnoches">0</span>
+            <button onclick="modificarCantidad('mediasnoches', 1)">+</button>
+          </div>
+        </div>
+        <div>
+          <span class="producto-nombre">Tartas</span>
+          <div class="control-cantidad">
+            <button onclick="modificarCantidad('tartas', -1)">-</button>
+            <span id="tartas">0</span>
+            <button onclick="modificarCantidad('tartas', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>¿Está pagado?</h3>
+      <label><input type="radio" name="pago" value="Pagado" /> Sí</label>
+      <label><input type="radio" name="pago" value="Pendiente" checked /> No</label>
+
+      <h3>¿Tiene alergias?</h3>
+      <label>
+        <input
+          type="radio"
+          name="tieneAlergia"
+          value="no"
+          checked
+          onclick="document.getElementById('alergiasBox').style.display='none'"
+        />
+        No
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="tieneAlergia"
+          value="si"
+          onclick="document.getElementById('alergiasBox').style.display='block'"
+        />
+        Sí
+      </label>
+
+      <div id="alergiasBox" style="display:none; margin-top: 10px;">
+        <h4>Selecciona alergias</h4>
+        <label><input type="checkbox" name="alergias" value="marisco" /> Marisco</label><br />
+        <label><input type="checkbox" name="alergias" value="queso" /> Queso</label><br />
+        <label><input type="checkbox" name="alergias" value="huevo" /> Huevo</label><br />
+        <label><input type="checkbox" name="alergias" value="gluten" /> Gluten</label><br />
+        <label><input type="checkbox" name="alergias" value="frutos secos" /> Frutos secos</label><br />
+        <label><input type="checkbox" name="alergias" value="lácteos" /> Lácteos</label><br />
+        <label><input type="checkbox" name="alergias" value="tomate" /> Tomate</label><br />
+        <label><input type="checkbox" name="alergias" value="soja" /> Soja</label>
+      </div>
+
+      <h3>Notas</h3>
+      <textarea id="notas" rows="3" cols="30" placeholder="Ej: traer con servilletas"></textarea>
+
+      <button class="confirmar" onclick="confirmarPedido()">Confirmar Pedido</button>
+    </section>
+
+    <section id="reservas" class="hidden">
+      <h2>Reservas</h2>
+      <input
+        type="text"
+        id="busquedaReservas"
+        oninput="filtrarReservas()"
+        placeholder="Buscar por nombre o teléfono"
+      />
+      <div id="listaReservas"></div>
+    </section>
+
+    <section id="historial" class="hidden">
+      <h2>Historial de Pedidos</h2>
+      <input
+        type="text"
+        id="busquedaHistorial"
+        oninput="filtrarHistorial()"
+        placeholder="Buscar por nombre o teléfono"
+      />
+      <div id="listaHistorial"></div>
+    </section>
+
+    <section id="resumen" class="hidden">
+      <h2>Total de Productos</h2>
+      <div id="resumenTotal"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
